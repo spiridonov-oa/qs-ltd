@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<id>ModMenu</id>
+	<version>1.0.0</version>
+	<vqmver>2.1.5</vqmver>
+	<author>rshakya - rshakya.com.np</author>
+	
+	<!-- ADMIN AREA START -->
+		<file name="adminpanel/controller/common/header.php">
+			<operation error="log">
+				<search position="after"><![CDATA[$this->data['zone'] = $this->url->link('localisation/zone', 'token=' . $this->session->data['token'], 'SSL');]]></search>
+				<add trim="true"><![CDATA[$this->data['menus'] = $this->url->link('menu/menus', 'token=' . $this->session->data['token'], 'SSL');]]></add>
+			</operation>
+			<operation error="skip">
+				<search position="after"><![CDATA[$this->data['text_zone'] = $this->language->get('text_zone');]]></search>
+				<add trim="true"><![CDATA[$this->data['text_menus'] = $this->language->get('text_menus');]]></add>
+			</operation>			
+		</file>
+		<file name="adminpanel/language/english/common/header.php">
+			<operation error="skip">
+				<search position="after"><![CDATA[$_['text_zone']                        = 'Zones';]]></search>
+				<add trim="true"><![CDATA[$_['text_menus']                        = 'Menus';]]></add>
+			</operation>			
+		</file>
+        <file name="adminpanel/language/russian/common/header.php">
+            <operation error="skip">
+                <search position="after"><![CDATA[$_['text_zone']                        = 'Регионы';]]></search>
+                <add trim="true"><![CDATA[$_['text_menus']                        = 'Меню';]]></add>
+            </operation>
+        </file>
+		<file name="adminpanel/view/template/common/header.tpl">
+			<operation error="skip">
+				<search position="after"><![CDATA[<li><a href="<?php echo $module; ?>"><?php echo $text_module; ?></a></li>]]></search>
+				<add trim="true"><![CDATA[<li><a href="<?php echo $menus; ?>"><?php echo $text_menus; ?></a></li>]]></add>
+			</operation>			
+		</file>
+		<!-- ADMIN AREA END -->
+</modification>

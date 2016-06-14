@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<id>Meta Title</id>
+	<version>1.0.0</version>
+	<vqmver>2.1.5</vqmver>
+	<author>spiridonov.oa@gmail.com</author>
+
+    <file name="adminpanel/view/template/design/banner_form.tpl">
+        <operation error="skip">
+        <search position="replace"><![CDATA[<td class="left"><input type="text" name="banner_image[<?php echo $image_row; ?>][link]" value="<?php echo $banner_image['link']; ?>" /></td>]]></search>
+        <add trim="true"><![CDATA[
+                    <td class="left banner-link-list">
+                        <table id="banner_image_<?php echo $image_row; ?>" style="border: none; width: 100%">
+                            <?php if(!empty($banner_image['banner_link_description'])) { ?>
+                                <?php for ($sort_order = 0; $sort_order < count($banner_image['banner_link_description']); $sort_order++ ) { ?>
+                                <tr id="banner_link_<?php echo $image_row; ?><?php echo $sort_order; ?>" class="banner-link">
+                                    <td style="border: none;"><?php echo $sort_order; ?></td>
+                                    <td style="border: none;">
+                                    <?php foreach ($languages as $language) { ?>
+                                        <img src="view/image/flags/<?php echo $language['image']; ?>" title="<?php echo $language['name']; ?>" />
+                                        <input type="text" size="40" name="banner_image[<?php echo $image_row; ?>][banner_link_description][<?php echo $sort_order; ?>][<?php echo $language['language_id']; ?>][text]" value="<?php echo $banner_images[$image_row]['banner_link_description'][$sort_order][$language['language_id']]['text']; ?>" placeholder="Text"/>
+                                        </br>
+                                    <?php } ?>
+                                    </td>
+                                    <td style="border: none;">
+                                    <?php foreach ($languages as $language) { ?>
+                                        <img src="view/image/flags/<?php echo $language['image']; ?>" title="<?php echo $language['name']; ?>" />
+                                        <input type="text" size="40" name="banner_image[<?php echo $image_row; ?>][banner_link_description][<?php echo $sort_order ?>][<?php echo $language['language_id']; ?>][link]; ?>" value="<?php echo $banner_images[$image_row]['banner_link_description'][$sort_order][$language['language_id']]['link']; ?>" placeholder="link http://" />
+                                        </br>
+                                    <?php } ?>
+                                    </td>
+                                    <td style="border: none;"><p class="button" onclick="deleteBannerLink(<?php echo $image_row; ?>, <?php echo $sort_order; ?>)">Delete <?php echo $sort_order; ?></p></td>
+                                </tr>
+                                <?php } ?>
+                            <?php } else { ?>
+                                <tr id="banner_link_<?php echo $image_row; ?>0" class="banner-link">
+                                    <td style="border: none;">0</td>
+                                    <td style="border: none;">
+                                        <?php foreach ($languages as $language) { ?>
+                                            <img src="view/image/flags/<?php echo $language['image']; ?>" title="<?php echo $language['name']; ?>" />
+                                            <input type="text" size="40" name="banner_image[<?php echo $image_row; ?>][banner_link_description][0][<?php echo $language['language_id']; ?>][text]" value="" placeholder="Text"/>
+                                            </br>
+                                        <?php } ?>
+                                    </td>
+                                    <td style="border: none;">
+                                        <?php foreach ($languages as $language) { ?>
+                                            <img src="view/image/flags/<?php echo $language['image']; ?>" title="<?php echo $language['name']; ?>" />
+                                            <input type="text" size="40" name="banner_image[<?php echo $image_row; ?>][banner_link_description][0][<?php echo $language['language_id']; ?>][link]; ?>" value="" placeholder="link http://" />
+                                            </br>
+                                        <?php } ?>
+                                    </td>
+                                    <td style="border: none;"><p class="button" onclick="deleteBannerLink()">Delete 0</p></td>
+                                </tr>
+                            <?php } ?>
+                            <tr><td style="border: none;" colspan="4"></td></tr>
+                        </table>
+                        <p onclick="addNewBannerLink(<?php echo $image_row; ?>, <?php echo count($banner_image['banner_link_description']); ?>)" class="button">Add</p>
+                    </td>
+                                ]]></add>
+        </operation>
+
+        <operation error="skip">
+            <search position="bottom" offset="1"><![CDATA[]]></search>
+            <add trim="true"><![CDATA[
+                        <style type="text/css">
+                            .list .banner-link td {
+                                padding-bottom: 10px;
+                            }
+                            .list .banner-link-list .button {
+                                background: #003A88;
+                                color: #fff;
+                                text-align: center;
+                                width: 100px;
+                                padding: 4px;
+                            }
+                        </style>
+                        <script type="text/javascript">
+                            var number_new_banner_link = [];
+                            var html = '';
+
+                            var languages = [];
+                            <?php foreach ($languages as $key => $language) { ?>
+                                languages['<?php echo $key; ?>'] = [];
+                                languages['<?php echo $key; ?>']['language_id'] = <?php echo $language['language_id']; ?>;
+                                languages['<?php echo $key; ?>']['image'] = '<?php echo $language['image']; ?>';
+                                languages['<?php echo $key; ?>']['name'] = '<?php echo $language['name']; ?>';
+                            <?php } ?>
+
+                            function addNewBannerLink (image_row, count_banner_link) {
+                                var banner_link_id;
+                                html = '';
+                                if(number_new_banner_link[image_row]){
+                                    banner_link_id = count_banner_link + number_new_banner_link[image_row];
+                                }else{
+                                    banner_link_id = count_banner_link;
+                                    number_new_banner_link[image_row] = 0;
+                                }
+
+                                html += '<tr id="banner_link_'+image_row+''+banner_link_id+'" class="banner-link" >';
+                                html += '<td style="border: none;">'+banner_link_id+'</td>';
+                                html += '<td style="border: none;">';
+                                for(var key in languages) {
+                                    var language = languages[key]['language_id'];
+                                    html += '<img src="view/image/flags/'+languages[key]['image']+'" title="'+languages[key]['name']+'" />';
+                                    html += '<input type="text" size="40" name="banner_image['+image_row+'][banner_link_description]['+banner_link_id+']['+language+'][text]" value="" placeholder="Text"/>';
+                                    html += '</br>';
+                                }
+                                html += '</td>';
+                                html += '<td style="border: none;">';
+                                for(var key in languages) {
+                                    var language = languages[key]['language_id'];
+                                    html += '<img src="view/image/flags/'+languages[key]['image']+'" title="'+languages[key]['name']+'" />';
+                                    html += '<input type="text" size="40" name="banner_image['+image_row+'][banner_link_description]['+banner_link_id+']['+language+'][link]; ?>" value="" placeholder="link http://" />';
+                                    html += '</br>';
+                                }
+                                html += '</td>';
+                                html += '<td style="border: none;"><p class="button" onclick="deleteBannerLink(' + image_row + ', ' + banner_link_id + ')">Delete '+banner_link_id+'</p></td>';
+                                html += '</tr>';
+                                $("#banner_image_"+image_row).append(html);
+
+                                number_new_banner_link[image_row]++;
+                            }
+
+                            function deleteBannerLink (image_row, banner_link_id) {
+                                if(image_row && banner_link_id) {
+                                    var banner_link_class = '#banner_link_' + image_row + '' + banner_link_id;
+                                    $(banner_link_class).remove();
+                                    number_new_banner_link[image_row]--;
+                                }
+                                if(banner_link_id == 0){
+                                    addNewBannerLink(image_row,0);
+                                }
+                            }
+
+                        </script>
+                                ]]></add>
+        </operation>
+
+        <operation error="skip">
+            <search position="replace"><![CDATA[<td class="left"><?php echo $entry_title; ?></td>]]></search>
+            <add trim="true"><![CDATA[
+                        <td class="left" style="width: 160px"><?php echo $entry_title; ?></td>
+                                ]]></add>
+        </operation>
+        <operation error="skip">
+            <search position="replace"><![CDATA[<td class="left"><?php echo $entry_link; ?></td>]]></search>
+            <add trim="true"><![CDATA[
+                        <td class="left" style="width: 700px"><?php echo $entry_link; ?></td>
+                                ]]></add>
+        </operation>
+
+        <operation error="skip">
+            <search position="replace" offset="2"><![CDATA[<span class="error"><?php echo $error_banner_image[$image_row][$language['language_id']]; ?></span>]]></search>
+            <add trim="true"><![CDATA[
+                       <span class="error"><?php echo $error_banner_image[$image_row][$language['language_id']]; ?></span>
+                       <?php } ?>
+                       <?php } ?>
+                       <p><?php echo $entry_link; ?></p>
+                       <input type="text" name="banner_image[<?php echo $image_row; ?>][link]" value="<?php echo $banner_image['link']; ?>" />
+                       </td>
+                                ]]></add>
+        </operation>
+    </file>
+
+    <file name="adminpanel/model/design/banner.php">
+        <operation error="skip">
+            <search position="after"><![CDATA[$this->db->query("DELETE FROM " . DB_PREFIX . "banner_image_description WHERE banner_id = '" . (int)$banner_id . "'");]]></search>
+            <add trim="true"><![CDATA[
+                        $this->db->query("DELETE FROM " . DB_PREFIX . "banner_link_description WHERE banner_id = '" . (int)$banner_id . "'");
+                    ]]></add>
+        </operation>
+
+        <operation error="skip">
+            <search position="before"><![CDATA[foreach ($banner_image['banner_image_description'] as $language_id => $banner_image_description) {]]></search>
+            <add trim="true"><![CDATA[
+                                foreach ($banner_image['banner_link_description'] as $sort_order => $banner_link_language_id) {
+                                    foreach($banner_link_language_id as $language_id => $banner_link_description) {
+                                        $this->db->query("INSERT INTO " . DB_PREFIX . "banner_link_description SET banner_id = '" . (int)$banner_id . "', banner_image_id = '" . (int)$banner_image_id . "', language_id = '" . (int)$language_id . "', sort_order = '" . (int)$sort_order . "', text = '" .  $this->db->escape($banner_link_description['text']) . "', link = '" .  $this->db->escape($banner_link_description['link']) . "'");
+                                    }
+                                }
+                    ]]></add>
+        </operation>
+
+        <operation error="skip">
+            <search position="before"><![CDATA[$banner_image_data[] = array(]]></search>
+            <add trim="true"><![CDATA[
+                        $banner_link_description_data = array();
+
+                        $banner_link_description_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "banner_link_description WHERE banner_image_id = '" . (int)$banner_image['banner_image_id'] . "' AND banner_id = '" . (int)$banner_id . "'");
+
+                        foreach ($banner_link_description_query->rows as $banner_link_description) {
+                            $banner_link_description_data[$banner_link_description['sort_order']][$banner_link_description['language_id']] = array('text' => $banner_link_description['text'], 'link' => $banner_link_description['link']);
+                        }
+                    ]]></add>
+        </operation>
+
+        <operation error="skip">
+            <search position="after"><![CDATA['banner_image_description' => $banner_image_description_data,]]></search>
+            <add trim="true"><![CDATA[
+                       'banner_link_description' => $banner_link_description_data,
+                    ]]></add>
+        </operation>
+    </file>
+
+    <file name="adminpanel/controller/design/banner.php">
+        <operation error="skip">
+            <search position="before"><![CDATA['banner_image_description' => $banner_image['banner_image_description'],]]></search>
+            <add trim="true"><![CDATA[
+                        'banner_link_description' => $banner_image['banner_link_description'],
+                    ]]></add>
+        </operation>
+    </file>
+
+    <file name="catalog/model/design/banner.php">
+        <operation error="skip">
+            <search position="replace"><![CDATA[return $query->rows;]]></search>
+            <add trim="true"><![CDATA[
+                        $results = $query->rows;
+                        foreach ($results as $key => $banner_image) {
+                            $results[$key]['banner_link_description'] = array();
+                            $link_query = $this->db->query("SELECT * FROM " . DB_PREFIX . "banner_link_description WHERE banner_image_id = '" . (int)$banner_image['banner_image_id'] . "' AND banner_id = '" . (int)$banner_image['banner_id'] . "' AND language_id = '" . (int)$this->config->get('config_language_id') . "'");
+                            if($link_query->num_rows) {
+                                for($i = 0; $i < count($link_query->rows); $i++){
+                                    foreach ($link_query->rows as $banner_link_description) {
+                                        if($i == $banner_link_description['sort_order'])
+                                        $results[$key]['banner_link_description'][] = $banner_link_description;
+                                    }
+                                }
+                            }
+                        }
+
+                        return $results;
+                    ]]></add>
+        </operation>
+    </file>
+
+    <file name="catalog/controller/module/slideshow.php">
+        <operation error="skip">
+            <search position="after"><![CDATA['image' => 'image/'.$result['image'],]]></search>
+            <add trim="true"><![CDATA[
+                        'banner_link_description' => $result['banner_link_description']
+                    ]]></add>
+        </operation>
+    </file>
+</modification>

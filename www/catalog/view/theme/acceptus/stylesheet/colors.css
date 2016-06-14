@@ -1,0 +1,121 @@
+/*--------------------------------------------------------------------------/
+* @Author		KulerThemes.com http://www.kulerthemes.com
+* @Copyright	Copyright (C) 2012 - 2013 KulerThemes.com. All rights reserved.
+* @License		KulerThemes.com Proprietary License
+/---------------------------------------------------------------------------*/
+
+/* =============== PREDEFINED COLORS - RED =============== */
+/* DEFAULT HTML - HEADING STYLES */
+.color-red h1 {
+}
+/* DEFAULT HTML - BUTTONS */
+/* HEADER */
+#topbar, #header #logo {
+    background-color: #316395;
+}
+#header #logo a {
+    color: #fff;
+}
+.color-red #topbar #currency a {
+	background-color: #316395;
+}
+.color-red #topbar #currency a.current {
+	color: #316395;
+}
+.color-red .mini-cart-info .total {
+	color: #21A1E5;
+}
+.color-red .mini-cart-info .name a:hover {
+	color: #21A1E5;
+}
+.color-red .mini-cart-total .total {
+	color: #21A1E5;
+}
+/* MENU */
+.color-red #menu {
+	background: #99b1c9;
+}
+.color-red .mainmenu ul li:hover > a,
+.color-red .mainmenu ul li.active > a {
+    color: #fff;
+}
+/* BREADCRUMB */
+.color-red .breadcrumb a:last-child:before {
+	/*background-color: #21A1E5;*/
+}
+.color-red .breadcrumb a:last-child {
+	color: #21A1E5;
+}
+/* TREEMENU */
+.color-red .treemenu li a:hover,
+.color-red .treemenu li a.active {
+	color: #21A1E5;
+}
+/* PAGINATION */
+.color-red .pagination .links b {
+	border: 2px solid #316395;
+        color:#316395;
+        background: #fff;
+}
+.color-red .pagination .links a:hover {
+	background-color: #21A1E5;
+}
+/* BOX PRODUCTS */
+.color-red .box-product .price {
+	color: #21A1E5;
+}
+/* PRODUCTS LIST */
+.color-red .product-list > div:hover {
+	border-color: #21A1E5;
+}
+.color-red .product-list > div:hover .name a {
+	color: #21A1E5;
+}
+.color-red .product-list .cart a {
+	background-color: #21A1E5;
+}
+/* hover */
+.color-red .product-list .wishlist a:hover,
+.color-red .product-list .compare a:hover {
+	color: #21A1E5;
+}
+/* PRODUCTS GRID */
+
+.color-red .product-grid .cart a:before {
+	background-color: #21A1E5;
+}
+.color-red .product-grid .cart a span:before {
+	background-color: #21A1E5;
+}
+
+/* TABS */
+.color-red .htabs a:hover {
+	color: #21A1E5;
+}
+/* CATEGORY */
+.color-red .product-filter .display span {
+	color: #21A1E5;
+}
+/* PRODUCT */
+.color-red .product-info .price {
+	color: #316395;
+}
+/* CHECKOUT */
+.green {
+	background-color: #3BE277 !important;
+    border-color: #3BE277  !important;
+    color: #FFF !important;
+}
+.green:hover {
+    background-color: #35ce6a !important;
+    border-color: #35ce6a  !important;
+}
+.green-border {
+    color: #3BE277  !important;
+    border-color: #3BE277  !important;
+}
+.green-border:hover {
+    background-color: #3BE277 !important;
+    border-color: #3BE277  !important;
+    color: #FFF !important;
+}

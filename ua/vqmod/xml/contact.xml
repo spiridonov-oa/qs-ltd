@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<modification>
+    <id>Contact us</id>
+    <version>0.1</version>
+    <vqmver>2.4.1</vqmver>
+    <author>Oleg Spiridonov [spiridonov.oa@gmail.com]</author>
+    
+    <file name="catalog/language/english/information/contact.php">
+        <operation>
+            <search position="before"><![CDATA[$_['text_telephone'] = 'Telephone:';]]></search>
+            <add><![CDATA[
+                $_['text_call_us'] = 'If you have any questions please contact us';
+            ]]></add>
+        </operation>
+    </file>
+    <file name="catalog/language/de_DE/information/contact.php">
+        <operation>
+            <search position="before"><![CDATA[$_['text_telephone'] = 'Telefon:';]]></search>
+            <add><![CDATA[
+                $_['text_call_us'] = 'Wenn Sie Fragen haben, kontaktieren Sie uns bitte';
+            ]]></add>
+        </operation>
+    </file>
+    <file name="catalog/language/russian/information/contact.php">
+        <operation>
+            <search position="before"><![CDATA[$_['text_telephone'] = 'Телефон:';]]></search>
+            <add><![CDATA[
+                $_['text_call_us'] = 'Если у Вас возникли вопросы, пожалуйста, свяжитесь с нами';
+            ]]></add>
+        </operation>
+    </file>
+    
+    <file name="catalog/controller/information/contact.php">
+        <operation>
+            <search position="before"><![CDATA[$this->data['text_telephone'] = $this->language->get('text_telephone');]]></search>
+            <add><![CDATA[
+                $this->data['text_call_us'] = $this->language->get('text_call_us');
+            ]]></add>
+        </operation>
+    </file>
+</modification>

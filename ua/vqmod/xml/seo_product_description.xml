@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<modification>
+    <id>Seo Product title</id>
+    <version>0.1a</version>
+    <vqmver>2.4.1</vqmver>
+    <author>Oleg Spiridonov [spiridonov.oa@gmail.com]</author>
+    
+    <file name="catalog/controller/product/product.php">
+
+
+        <operation>
+            <search position="replace"><![CDATA[$this->document->setDescription($product_info['meta_description']);]]></search>
+            <add><![CDATA[
+                $pre_description = '';
+                $product_description = $product_info['meta_description'];
+                $after_description = '';
+
+                $product_price = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')));
+                $pre_description = $product_info['name'] . ' - ' . $this->language->get('text_price') . $product_price . '. ';
+
+                $after_description = ' ' . $this->config->get('config_name');
+
+                $product_description = $pre_description . $product_description . $after_description;
+                $this->document->setDescription($product_description);
+            ]]></add>
+        </operation>
+    </file>
+    
+</modification>

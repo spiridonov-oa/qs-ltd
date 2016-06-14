@@ -1,0 +1,68 @@
+<modification>
+
+	<file name="catalog/controller/module/category.php">
+      <operation>
+         <search position="replace"><![CDATA[
+            'name'        => $category['name'] . ' (' . $product_total . ')',   
+         ]]></search>
+         <add><![CDATA[
+            'name'        => $category['name']/* . ' (' . $product_total . ')'*/,
+         ]]></add>
+      </operation>
+      <operation>
+         <search position="replace"><![CDATA[
+            'name'        => $child['name'] . ' (' . $product_total . ')',
+         ]]></search>
+         <add><![CDATA[
+            'name'        => $child['name']/* . ' (' . $product_total . ')'*/,
+         ]]></add>
+      </operation>
+
+      </file>	
+		<file name="catalog/controller/product/category.php">
+		<operation>
+			<search position="replace"><![CDATA[
+				'name'  => $result['name'] . ' (' . $product_total . ')',
+			]]></search>
+			<add><![CDATA[
+				'name'  => $result['name']/* . ' (' . $product_total . ')'*/,
+			]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+				$product_total = $this->model_catalog_product->getTotalProducts($data);
+			]]></search>
+			<add><![CDATA[
+			]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+				$pagination = new Pagination();
+			]]></search>
+			<add><![CDATA[
+			$product_total = $this->model_catalog_product->getTotalProducts($data);
+			
+			$pagination = new Pagination();
+			]]></add>
+		</operation>
+	</file>
+	
+		<file name="catalog/controller/common/header.php">
+		<operation>
+			<search position="replace"><![CDATA[
+				'name'  => $child['name'] . ' (' . $product_total . ')',
+			]]></search>
+			<add><![CDATA[
+				'name'  => $child['name']/* . ' (' . $product_total . ')'*/,
+			]]></add>
+		</operation>
+				<operation>
+			<search position="replace"><![CDATA[
+				$product_total = $this->model_catalog_product->getTotalProducts($data);
+			]]></search>
+			<add><![CDATA[
+			]]></add>
+		</operation>
+
+	</file>
+</modification>

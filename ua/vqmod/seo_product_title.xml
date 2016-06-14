@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<modification>
+    <id>Seo Product title</id>
+    <version>0.1a</version>
+    <vqmver>2.4.1</vqmver>
+    <author>Oleg Spiridonov [spiridonov.oa@gmail.com]</author>
+    
+    <file name="catalog/controller/product/product.php">
+        <operation>
+            <search position="after"><![CDATA[public function index() {]]></search>
+            <add><![CDATA[
+                $product_categories_title = '';
+            ]]></add>
+        </operation>
+
+        <operation>
+            <search position="after"><![CDATA[$category_info = $this->model_catalog_category->getCategory($path_id);]]></search>
+            <add><![CDATA[
+                $product_categories_title = '. ' . $category_info['name'] . $product_categories_title;
+            ]]></add>
+        </operation>
+
+        <operation>
+            <search position="replace"><![CDATA[$this->document->setTitle($product_info['name']);]]></search>
+            <add><![CDATA[
+                $product_title = $product_info['name'];
+                $product_title .= $product_categories_title  . '. Quality System';
+                $this->document->setTitle($product_title);
+            ]]></add>
+        </operation>
+    </file>
+    
+</modification>
