@@ -1,0 +1,117 @@
+.primary-define .cart-info.order-products {
+    width: 100%;
+}
+.primary-define .cart-info.order-products table .image {
+    width: 40px;
+}
+.primary-define .cart-info.order-products table .quantity {
+    width: 60px;
+}
+.primary-define .cart-info.order-products table .quantity .quantity-input {
+    width: 40px;
+    border: 1px solid #ddd;
+    text-indent: 5px;
+}
+.primary-define .cart-info.order-products table .price {
+    min-width: auto;
+    width: 10%;
+}
+.primary-define .cart-info.order-products table .total {
+    font-family: 'PT Sans Narrow', Arial, sans-serif;
+    width: 15%;
+}
+.primary-define .cart-info.order-products table .total strong{
+    font-family: 'PT Sans Narrow', Arial, sans-serif;
+}
+.primary-define .cart-info.order-products table .remove {
+    width: 30px;
+}
+.primary-define .cart-info.order-products table .remove {
+    width: 30px;
+}
+
+.cart-info.order-products .button {
+    margin:0;
+    padding: 0 18px;
+}
+.cart-info.order-products .btn-checkout{
+    float:right;
+}
+.cart-info.order-products .btn-continue{
+    float:left;
+}
+.primary-define .cart-info.order-products .continue:hover {
+    background-color: #444;
+}
+.cart-info.order-products .cart-total .buttons{
+    border: 0;
+    position: relative;
+    padding: 10px 0;
+}
+.primary-define .cart-info.order-products .cart-total tr:last-child td {
+    color: #316395;
+    font-size: 20px;
+    font-weight: bold;
+}
+.primary-define .cart-info.order-products .cart-total tr:last-child td strong {
+    color: #888;
+}
+.primary-define .cart-info.order-products .cart-total tr td {
+    width: auto;
+    text-align: right;
+}
+
+.primary-define .cart-info.order-products .recent-products {
+    margin: 0;
+    font-size: 18px;
+    line-height: 30px;
+    padding: 0 20px;
+    border-bottom: 1px solid #ddd;
+}
+.primary-define .cart-info.order-products table {
+    margin: 0;
+}
+
+.primary-define .cart-info.related-products {
+    width: 100%;
+    margin: 10px 0;
+}
+.primary-define .cart-info.related-products .box-heading {
+    text-align: center;
+    font-size: 20px;
+    margin: 0 0 10px 0;
+    padding: 0;
+    font-family: 'PT Sans Narrow', Arial, sans-serif;
+}
+.primary-define .cart-info.related-products .product-grid {
+    margin-left:-23px;
+}
+.primary-define .cart-info.related-products .product-grid > div {
+    margin: 0 0 20px 23px;
+    max-width: 225px;
+    text-align: center;
+}
+.primary-define .cart-info.related-products .box-product.product-grid .details {
+    height: auto;
+    top:0;
+    display: block;
+    opacity: 1;
+    position: relative;
+}
+.primary-define .cart-info.related-products .product-grid a {
+    display: block;
+}
+.cart-info.related-products .product-image {
+    float: none;
+    padding: 0 0 5px 0;
+    position: relative;
+    width: 225px;
+    height: 225px;
+}
+.cart-info.related-products .product-image img{
+    width:200px;
+    height:200px;
+}
+.primary-define .warning {
+    position: relative;
+}

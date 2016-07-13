@@ -1,0 +1,131 @@
+/* yaslider base styles */
+.yaslider { height: 260px; width: 980px; margin: 0 0 20px; position: relative; z-index: 1; }
+.yaslider-box { height: 260px; width: 980px; overflow: hidden; }
+.ys-clear:after { content: "."; display: block; height: 1%; clear: both; visibility: hidden; }
+.ys-larr,
+.ys-rarr { display: block; position: absolute; top: 70%; left: -5px; height: 41px; width: 36px; z-index: 999; }
+.ys-rarr { left: auto; right: -5px; }
+.ys-badge { position: absolute; top: -4px; left: -4px; width: 49px; height: 49px; z-index: 1010; }
+.ys-badge-top { background: url(../image/yaslider/badge-top.png) center center no-repeat }
+.ys-badge-new { background: url(../image/yaslider/badge-new.png) center center no-repeat }
+.ys-badge-best { background: url(../image/yaslider/badge-best.png) center center no-repeat }
+.ys-badge-hot { background: url(../image/yaslider/badge-hot.png) center center no-repeat }
+/* slides */
+.ys-slide { height: 260px; width: 980px; position: relative; }
+.ys-p-image { position: absolute; top: 50%; left: 50%; }
+.ys-p-rating { position: absolute; top: 50%; left: 50%; margin-top: 80px; }
+.ys-p-name { position: absolute; top: 50%; left: 50%; margin: 10px 0 0; }
+.ys-p-name a { text-decoration: none; font-size: 30px; }
+.ys-p-name a:hover { text-decoration: underline }
+.ys-p-name span { display: block; padding: 0 20px 0 0 }
+.ys-p-price { position: absolute; top: 50%; left: 50%; margin: -72px 0 0; width: 180px; text-align: center; height: 72px; line-height: 60px; font-size: 24px; font-weight: bold; }
+.ys-p-price-old { display: block; position: absolute; top: -15px; width: 180px; text-align: center; font-size: 12px; text-decoration: line-through; line-height: 11px; text-shadow: none; }
+.ys-p-price-new { line-height: 60px }
+.ys-p-buy,
+.ys-p-details { position: absolute; top: 50%; left: 50%; margin: -72px 0 0 184px; height: 28px; line-height: 28px; width: 100px; text-align: center; text-transform: uppercase; font-weight: bold; }
+.ys-p-details { margin-top: -40px; }
+.ys-p-buy a,
+.ys-p-details a { text-decoration: none; display: block; height: 28px; line-height: 28px; width: 100px; }
+.ys-p-buy a:hover,
+.ys-p-details a:hover { text-decoration: none }
+
+/* --- styles --- */
+/* default */
+.ys-style-default { border: 1px solid #d6d6d6 }
+.ys-style-bubble { border: 1px solid #d6d6d6; -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; }
+.ys-style-default .ys-p-price, 
+.ys-style-bubble .ys-p-price { background-position: 0 0; background-repeat: no-repeat; text-shadow: 0 1px 0 #222; color: #fff; }
+.ys-style-default .ys-p-name a,
+.ys-style-bubble .ys-p-name a { color: #666 }
+.ys-style-default .ys-p-name span,
+.ys-style-bubble .ys-p-name span { color: #999 }
+.ys-style-default .ys-p-buy a,
+.ys-style-bubble .ys-p-buy a,
+.ys-style-default .ys-p-details a,
+.ys-style-bubble .ys-p-details a { color: #666; background-position: -80px -72px; background-repeat: no-repeat; }
+.ys-style-default .ys-p-buy a:hover,
+.ys-style-bubble .ys-p-buy a:hover,
+.ys-style-default .ys-p-details a:hover,
+.ys-style-bubble .ys-p-details a:hover { color: #fff; background-position: -80px -100px; }
+.ys-style-default .ys-larr,
+.ys-style-bubble .ys-larr,
+.ys-style-default .ys-rarr,
+.ys-style-bubble .ys-rarr { background-position: 0 -72px; background-repeat: no-repeat; }
+.ys-style-default .ys-rarr,
+.ys-style-bubble .ys-rarr { background-position: -36px -72px }
+.ys-style-default .ys-p-price-old,
+.ys-style-bubble .ys-p-price-old { color: #666 }
+
+/* default grey */
+.ys-style-default.ys-color-grey .ys-p-price,
+.ys-style-default.ys-color-grey .ys-larr,
+.ys-style-default.ys-color-grey .ys-rarr,
+.ys-style-default.ys-color-grey .ys-p-buy a,
+.ys-style-default.ys-color-grey .ys-p-details a { background-image: url(../image/yaslider/default-grey.png); }
+/* default blue */
+.ys-style-default.ys-color-blue .ys-p-price,
+.ys-style-default.ys-color-blue .ys-larr,
+.ys-style-default.ys-color-blue .ys-rarr,
+.ys-style-default.ys-color-blue .ys-p-buy a,
+.ys-style-default.ys-color-blue .ys-p-details a { background-image: url(../image/yaslider/default-blue.png); }
+/* default red */
+.ys-style-default.ys-color-red .ys-p-price,
+.ys-style-default.ys-color-red .ys-larr,
+.ys-style-default.ys-color-red .ys-rarr,
+.ys-style-default.ys-color-red .ys-p-buy a,
+.ys-style-default.ys-color-red .ys-p-details a { background-image: url(../image/yaslider/default-red.png); }
+/* default green */
+.ys-style-default.ys-color-green .ys-p-price,
+.ys-style-default.ys-color-green .ys-larr,
+.ys-style-default.ys-color-green .ys-rarr,
+.ys-style-default.ys-color-green .ys-p-buy a,
+.ys-style-default.ys-color-green .ys-p-details a { background-image: url(../image/yaslider/default-green.png); }
+/* default orange */
+.ys-style-default.ys-color-orange .ys-p-price,
+.ys-style-default.ys-color-orange .ys-larr,
+.ys-style-default.ys-color-orange .ys-rarr,
+.ys-style-default.ys-color-orange .ys-p-buy a,
+.ys-style-default.ys-color-orange .ys-p-details a { background-image: url(../image/yaslider/default-orange.png); }
+/* default black */
+.ys-style-default.ys-color-black .ys-p-price,
+.ys-style-default.ys-color-black .ys-larr,
+.ys-style-default.ys-color-black .ys-rarr,
+.ys-style-default.ys-color-black .ys-p-buy a,
+.ys-style-default.ys-color-black .ys-p-details a { background-image: url(../image/yaslider/default-black.png); }
+
+/* bubble grey */
+.ys-style-bubble.ys-color-grey .ys-p-price,
+.ys-style-bubble.ys-color-grey .ys-larr,
+.ys-style-bubble.ys-color-grey .ys-rarr,
+.ys-style-bubble.ys-color-grey .ys-p-buy a,
+.ys-style-bubble.ys-color-grey .ys-p-details a { background-image: url(../image/yaslider/bubble-grey.png); }
+/* bubble blue */
+.ys-style-bubble.ys-color-blue .ys-p-price,
+.ys-style-bubble.ys-color-blue .ys-larr,
+.ys-style-bubble.ys-color-blue .ys-rarr,
+.ys-style-bubble.ys-color-blue .ys-p-buy a,
+.ys-style-bubble.ys-color-blue .ys-p-details a { background-image: url(../image/yaslider/bubble-blue.png); }
+/* bubble red */
+.ys-style-bubble.ys-color-red .ys-p-price,
+.ys-style-bubble.ys-color-red .ys-larr,
+.ys-style-bubble.ys-color-red .ys-rarr,
+.ys-style-bubble.ys-color-red .ys-p-buy a,
+.ys-style-bubble.ys-color-red .ys-p-details a { background-image: url(../image/yaslider/bubble-red.png); }
+/* bubble green */
+.ys-style-bubble.ys-color-green .ys-p-price,
+.ys-style-bubble.ys-color-green .ys-larr,
+.ys-style-bubble.ys-color-green .ys-rarr,
+.ys-style-bubble.ys-color-green .ys-p-buy a,
+.ys-style-bubble.ys-color-green .ys-p-details a { background-image: url(../image/yaslider/bubble-green.png); }
+/* bubble orange */
+.ys-style-bubble.ys-color-orange .ys-p-price,
+.ys-style-bubble.ys-color-orange .ys-larr,
+.ys-style-bubble.ys-color-orange .ys-rarr,
+.ys-style-bubble.ys-color-orange .ys-p-buy a,
+.ys-style-bubble.ys-color-orange .ys-p-details a { background-image: url(../image/yaslider/bubble-orange.png); }
+/* bubble black */
+.ys-style-bubble.ys-color-black .ys-p-price,
+.ys-style-bubble.ys-color-black .ys-larr,
+.ys-style-bubble.ys-color-black .ys-rarr,
+.ys-style-bubble.ys-color-black .ys-p-buy a,
+.ys-style-bubble.ys-color-black .ys-p-details a { background-image: url(../image/yaslider/bubble-black.png); }
