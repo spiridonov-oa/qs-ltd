@@ -490,10 +490,10 @@ body,
     height:103px;
     line-height: 50px;
     color:#fff;
-    display:block;
     position: relative;
     z-index: 9;
     background:url(../image/logo.png) no-repeat center center;
+    background-size: contain;
 }
 #header #logo.fixed a{
     height:50px;
