@@ -1,0 +1,33 @@
+<!-- Created using vQmod XML Generator by UKSB - http://uksb.github.com/vqgen/ //-->
+<modification>
+	<id><![CDATA[vqmod remove address tel contact us]]></id>
+	<version><![CDATA[1.5.5.1]]></version>
+	<vqmver><![CDATA[2.3.2]]></vqmver>
+	<author><![CDATA[Randy Hasson]]></author>
+	<file name="catalog/view/theme/acceptus/template/information/contact.tpl">
+		<operation>
+			<search position="before"><![CDATA[<h2><?php echo $text_location;]]></search>
+			<add><![CDATA[<!--]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[$text_location; ?></h2>]]></search>
+			<add><![CDATA[-->]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[<?php echo $text_address; ?>]]></search>
+			<add><![CDATA[<!--]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[<?php echo $address; ?></div>]]></search>
+			<add><![CDATA[-->]]></add>
+		</operation>
+		<operation>
+			<search position="before"><![CDATA[<?php if ($telephone) { ?>]]></search>
+			<add><![CDATA[<!--]]></add>	
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[<h2><?php echo $text_contact; ?></h2>]]></search>
+			<add><![CDATA[-->]]></add>
+		</operation>		
+	</file>
+</modification>		
