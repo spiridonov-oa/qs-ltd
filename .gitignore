@@ -13,3 +13,5 @@ system/storage/
 
 google*.html
 config.php
+
+node_modules/
