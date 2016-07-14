@@ -5,10 +5,9 @@ var gulp = require('gulp'),
     prefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
     sourcemaps = require('gulp-sourcemaps'),
-    concatCss = require('gulp-concat-css'),
     concat = require('gulp-concat'),
     rigger = require('gulp-rigger'),
-    cssmin = require('gulp-minify-css'),
+    cleanCSS = require('gulp-clean-css'),
     imagemin = require('gulp-imagemin'),
     pngquant = require('imagemin-pngquant'),
     rimraf = require('rimraf'),
@@ -20,7 +19,7 @@ var build = '/build';
 var path = {
     src: { //Пути откуда брать исходники
         js: themePath + '/js/*.js',//В стилях и скриптах нам понадобятся только main файлы
-        style: themePath + '/stylesheet/',
+        style: themePath + '/stylesheet/*.css',
         img: themePath + '/image/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
         fonts: themePath + '/fonts/**/*.*'
     },
@@ -51,8 +50,10 @@ gulp.task('js:build', function () {
 
 gulp.task('style:build', function () {
     gulp.src(path.src.style) //Выберем наш main.css
-        .pipe(concatCss('final.css')) //Добавим вендорные префиксы
-        .pipe(cssmin()) //Сожмем
+
+        .pipe(sourcemaps.init())
+        .pipe(cleanCSS())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css)); //И в build
 });
 
