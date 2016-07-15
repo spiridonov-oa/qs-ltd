@@ -19,12 +19,7 @@
         <?php foreach ($links as $link) { ?>
         <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
         <?php } ?>
-        <link rel="stylesheet" type="text/css" href="catalog/view/theme/acceptus/stylesheet/stylesheet.css" />
-        <link rel="stylesheet" type="text/css" href="catalog/view/theme/acceptus/stylesheet/personal-cart.css" />
-        <link rel="stylesheet" type="text/css" href="catalog/view/theme/acceptus/stylesheet/checkout.css" />
-
-        <link rel="stylesheet" type="text/css" href="catalog/view/theme/acceptus/stylesheet/responsive.css" />
-        <link rel="stylesheet" type="text/css" href="catalog/view/theme/acceptus/stylesheet/colors.css" />
+        <link rel="stylesheet" type="text/css" href="catalog/view/theme/acceptus/build/css/app.css" />
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script type="text/javascript" src="catalog/view/javascript/jquery/colorbox/jquery.colorbox.js"></script>
@@ -42,7 +37,7 @@
         <script type="text/javascript" src="<?php echo $script; ?>"></script>
         <?php } ?>
         <!--[if lte IE 8]>
-        <link rel="stylesheet" type="text/css" href="catalog/view/theme/acceptus/stylesheet/ie.css" />
+        <link rel="stylesheet" type="text/css" href="catalog/view/theme/acceptus/build/css/ie.css" />
         <![endif]-->
         <?php if ($stores) { ?>
         <script type="text/javascript"><!--
