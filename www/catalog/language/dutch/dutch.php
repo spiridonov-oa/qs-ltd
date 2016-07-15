@@ -17,7 +17,7 @@ $_['text_none']             = ' --- Geen --- ';
 $_['text_select']           = ' --- Selecteer --- ';
 $_['text_all_zones']        = 'Alle zones';
 $_['text_pagination']       = 'Producten {start} t/m {end} van {total} ({pages} pagina\'s)';
-$_['text_separator']        = ' &gt; ';
+$_['text_separator']        = '';
 
 // Buttons
 $_['button_add_address']    = 'Adres toevoegen';

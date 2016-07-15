@@ -3,7 +3,7 @@
 // Opencart France				  //
 // http://www.opencart-france.fr  //
 // Traduit par LeorLindel		  //
-// Propriété d'opencart-france.fr //
+// Propriï¿½tï¿½ d'opencart-france.fr //
 //----------------------------------
 
 // Locale
@@ -23,7 +23,7 @@ $_['text_none']				= ' --- Aucun --- ';
 $_['text_select']			= ' --- Veuillez choisir --- ';
 $_['text_all_zones']		= 'Toutes zones';
 $_['text_pagination']		= '{start} &agrave; {end} sur {total} ({pages} Pages)';
-$_['text_separator']		= ' &gt; ';
+$_['text_separator']		= '';
 
 // Buttons
 $_['button_add_address']	= 'Ajouter une adresse';

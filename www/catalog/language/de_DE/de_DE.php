@@ -16,7 +16,7 @@ $_['text_none']             = ' --- Keine --- ';
 $_['text_select']           = ' --- Bitte wählen --- ';
 $_['text_all_zones']        = 'Alle Zonen';
 $_['text_pagination']       = 'Zeige {start} bis {end} von {total} ({pages} Seiten)';
-$_['text_separator']        = '»';
+$_['text_separator']        = '';
 
 // Buttons
 $_['button_add_address']    = 'Neue Adresse';
