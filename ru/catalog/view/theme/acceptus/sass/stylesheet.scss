@@ -1392,21 +1392,18 @@ body,
 }
 /* PRODUCTS GRID */
 .primary-define .product-grid{
-  margin-left:-24px;
+  margin-left:-20px;
 }
 .primary-define .grid-layout{
-  margin-left:-19px;
+  margin-left:-15px;
 }
 .primary-define .product-grid > div {
   text-align: center;
-  /*display: inline-block;*/
+  display: inline-block;
   background-color: #fff;
-  margin:0 0 20px 24px;
-  /*padding: 5px;*/
+  margin:0 0 20px 20px;
   border: 1px solid #fff;
-  float:left;
   width:225px;
-/*height:345px;*/
 }
 .primary-define .product-grid .description{
   line-height:1.2;
@@ -1414,7 +1411,7 @@ body,
   margin-bottom:8px;
 }
 .primary-define .grid-layout > div {
-  margin:0 0 20px 19px;
+  margin:0 0 20px 15px;
 }
 .primary-define .product-grid > div > a {
   display: block;
