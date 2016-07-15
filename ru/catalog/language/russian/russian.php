@@ -16,7 +16,7 @@ $_['text_none']             = ' --- Не выбрано --- ';
 $_['text_select']           = ' --- Выберите --- ';
 $_['text_all_zones']        = 'Все зоны';
 $_['text_pagination']       = 'Показано с {start} по {end} из {total} (всего {pages} страниц)';
-$_['text_separator']        = ' &raquo; ';
+$_['text_separator']        = '';
 
 // Buttons
 $_['button_add_address']    = 'Добавить адрес';
