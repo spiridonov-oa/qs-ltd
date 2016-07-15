@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     prefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
     sourcemaps = require('gulp-sourcemaps'),
+    sass = require('gulp-sass'),
     concat = require('gulp-concat'),
     rigger = require('gulp-rigger'),
     cleanCSS = require('gulp-clean-css'),
@@ -19,7 +20,7 @@ var build = '/build';
 var path = {
     src: { //Пути откуда брать исходники
         js: themePath + '/js/*.js',//В стилях и скриптах нам понадобятся только main файлы
-        style: themePath + '/stylesheet/*.css',
+        style: [themePath + '/sass/app.scss', themePath + '/sass/ie.scss'],
         img: themePath + '/image/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
         fonts: themePath + '/fonts/**/*.*'
     },
@@ -31,7 +32,7 @@ var path = {
     },
     watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
         js: themePath + '/js/*.js',
-        style: themePath + '/stylesheet/',
+        style: themePath + '/sass/*.scss',
         img: themePath + '/image/**/*.*',
         fonts: themePath + '/fonts/**/*.*'
     },
@@ -49,10 +50,11 @@ gulp.task('js:build', function () {
 });
 
 gulp.task('style:build', function () {
-    gulp.src(path.src.style) //Выберем наш main.css
-
-        .pipe(sourcemaps.init())
-        .pipe(cleanCSS())
+    gulp.src(path.src.style) //Выберем наш main.scss
+        .pipe(sourcemaps.init()) //То же самое что и с js
+        .pipe(sass()) //Скомпилируем
+        .pipe(prefixer()) //Добавим вендорные префиксы
+        .pipe(cleanCSS()) //Сожмем
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css)); //И в build
 });

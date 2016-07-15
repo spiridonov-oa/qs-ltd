@@ -19,12 +19,7 @@
         <?php foreach ($links as $link) { ?>
         <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
         <?php } ?>
-        <link rel="stylesheet" type="text/css" href="catalog/view/theme/acceptus/build/css/stylesheet.css" />
-        <link rel="stylesheet" type="text/css" href="catalog/view/theme/acceptus/build/css/personal-cart.css" />
-        <link rel="stylesheet" type="text/css" href="catalog/view/theme/acceptus/build/css/checkout.css" />
-
-        <link rel="stylesheet" type="text/css" href="catalog/view/theme/acceptus/build/css/responsive.css" />
-        <link rel="stylesheet" type="text/css" href="catalog/view/theme/acceptus/build/css/colors.css" />
+        <link rel="stylesheet" type="text/css" href="catalog/view/theme/acceptus/build/css/app.css" />
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script type="text/javascript" src="catalog/view/javascript/jquery/colorbox/jquery.colorbox.js"></script>
