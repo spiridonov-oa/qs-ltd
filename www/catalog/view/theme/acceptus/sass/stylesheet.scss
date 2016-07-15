@@ -485,7 +485,8 @@ body,
 }
 #header #logo.fixed a{
   height:50px;
-  background:url(../image/logo-mini.png) no-repeat center center;
+  background:url(../image/logo.png) no-repeat center center;
+  background-size: contain;
 }
 #header #logo a:before{
   display:block;
