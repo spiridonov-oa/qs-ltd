@@ -1155,9 +1155,6 @@ body,
 .box-product > div {
     position: relative;
     vertical-align: top;
-    transition: 0.2s ease-out;
-    -moz-transition: 0.2s ease-out;
-    -webkit-transition: 0.2s ease-out;
     width:225px;
 }
 .box-product .image{
