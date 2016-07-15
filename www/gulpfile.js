@@ -16,30 +16,36 @@ var gulp = require('gulp'),
     reload = browserSync.reload;
 
 var themePath = 'catalog/view/theme/acceptus';
-var build = '/build';
-var path = {
-    src: { //Пути откуда брать исходники
-        js: themePath + '/js/*.js',//В стилях и скриптах нам понадобятся только main файлы
-        style: [themePath + '/sass/app.scss', themePath + '/sass/ie.scss'],
-        img: themePath + '/image/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
-        fonts: themePath + '/fonts/**/*.*'
-    },
-    build: { //Тут мы укажем куда складывать готовые после сборки файлы
-        js: themePath + build + '/js/',
-        css: themePath + build + '/css/',
-        img: themePath + build + '/image/',
-        fonts: themePath + build + '/fonts/'
-    },
-    watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
-        js: themePath + '/js/*.js',
-        style: themePath + '/sass/*.scss',
-        img: themePath + '/image/**/*.*',
-        fonts: themePath + '/fonts/**/*.*'
-    },
-    clean: themePath + build
-};
+var themePathRu = '../ru/catalog/view/theme/acceptus';
+var buildPath = '/build';
+var path = getPath();
+function getPath (customThemePath) {
+    var themePath = 'catalog/view/theme/acceptus';
+    var customThemePath = customThemePath || themePath;
+    return {
+        src: { //Пути откуда брать исходники
+            js: themePath + '/js/*.js',//В стилях и скриптах нам понадобятся только main файлы
+            style: [themePath + '/sass/app.scss', themePath + '/sass/ie.scss'],
+            img: themePath + '/image/**/*.*', //Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
+            fonts: themePath + '/fonts/**/*.*'
+        },
+        build: { //Тут мы укажем куда складывать готовые после сборки файлы
+            js: customThemePath + buildPath + '/js/',
+            css: customThemePath + buildPath + '/css/',
+            img: customThemePath + buildPath + '/image/',
+            fonts: customThemePath + buildPath + '/fonts/'
+        },
+        watch: { //Тут мы укажем, за изменением каких файлов мы хотим наблюдать
+            js: themePath + '/js/*.js',
+            style: themePath + '/sass/*.scss',
+            img: themePath + '/image/**/*.*',
+            fonts: themePath + '/fonts/**/*.*'
+        },
+        clean: customThemePath + buildPath
+    }
+}
 
-gulp.task('js:build', function () {
+var jsTask = function (path) {
     gulp.src(path.src.js) //Найдем наш main файл
         .pipe(rigger()) //Прогоним через rigger
         .pipe(concat('final.js'))
@@ -47,9 +53,9 @@ gulp.task('js:build', function () {
         .pipe(uglify()) //Сожмем наш js
         .pipe(sourcemaps.write()) //Пропишем карты
         .pipe(gulp.dest(path.build.js)); //Выплюнем готовый файл в build
-});
+};
 
-gulp.task('style:build', function () {
+var styleTask = function (path) {
     gulp.src(path.src.style) //Выберем наш main.scss
         .pipe(sourcemaps.init()) //То же самое что и с js
         .pipe(sass()) //Скомпилируем
@@ -57,9 +63,9 @@ gulp.task('style:build', function () {
         .pipe(cleanCSS()) //Сожмем
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(path.build.css)); //И в build
-});
+};
 
-gulp.task('image:build', function () {
+var imageTask = function (path) {
     gulp.src(path.src.img) //Выберем наши картинки
         .pipe(imagemin({ //Сожмем их
             progressive: true,
@@ -68,11 +74,31 @@ gulp.task('image:build', function () {
             interlaced: true
         }))
         .pipe(gulp.dest(path.build.img)); //И бросим в build
+};
+
+var fontsTask = function (path) {
+    gulp.src(path.src.fonts)
+        .pipe(gulp.dest(path.build.fonts))
+};
+
+gulp.task('js:build', function () {
+    jsTask(getPath());
+    jsTask(getPath(themePathRu));
+});
+
+gulp.task('style:build', function () {
+    styleTask(getPath());
+    styleTask(getPath(themePathRu));
+});
+
+gulp.task('image:build', function () {
+    imageTask(getPath());
+    imageTask(getPath(themePathRu));
 });
 
 gulp.task('fonts:build', function() {
-    gulp.src(path.src.fonts)
-        .pipe(gulp.dest(path.build.fonts))
+    fontsTask(getPath());
+    fontsTask(getPath(themePathRu));
 });
 
 gulp.task('build', [
