@@ -2,7 +2,7 @@
     <div id="menu-inner">
         <div class="wrapper clearafter">
             
-            <ul class="<?php echo $class;?> mainmenu clearafter">
+            <ul class="<?php echo $class;?> mainmenu">
                 <?php echo $menu;?>
             </ul>
             
