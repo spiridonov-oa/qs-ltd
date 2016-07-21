@@ -32,7 +32,8 @@ class ModelCheckoutOrder extends Model {
 
 	public function getOrder($order_id) {
 		$order_query = $this->db->query("SELECT *, (SELECT os.name FROM `" . DB_PREFIX . "order_status` os WHERE os.order_status_id = o.order_status_id AND os.language_id = o.language_id) AS order_status FROM `" . DB_PREFIX . "order` o WHERE o.order_id = '" . (int)$order_id . "'");
-			
+		$store_address = $this->db->query("SELECT value FROM `" . DB_PREFIX . "setting` os WHERE os.key = 'config_address' AND os.store_id = '" . (int)$order_query->row['store_id'] . "'");
+
 		if ($order_query->num_rows) {
 			$country_query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "country` WHERE country_id = '" . (int)$order_query->row['payment_country_id'] . "'");
 			
@@ -90,7 +91,8 @@ class ModelCheckoutOrder extends Model {
 				'invoice_prefix'          => $order_query->row['invoice_prefix'],
 				'store_id'                => $order_query->row['store_id'],
 				'store_name'              => $order_query->row['store_name'],
-				'store_url'               => $order_query->row['store_url'],				
+				'store_address'           => $store_address->row['value'],
+				'store_url'               => $order_query->row['store_url'],
 				'customer_id'             => $order_query->row['customer_id'],
 				'firstname'               => $order_query->row['firstname'],
 				'lastname'                => $order_query->row['lastname'],
@@ -98,7 +100,7 @@ class ModelCheckoutOrder extends Model {
 				'fax'                     => $order_query->row['fax'],
 				'email'                   => $order_query->row['email'],
 				'payment_firstname'       => $order_query->row['payment_firstname'],
-				'payment_lastname'        => $order_query->row['payment_lastname'],				
+				'payment_lastname'        => $order_query->row['payment_lastname'],
 				'payment_company'         => $order_query->row['payment_company'],
 				'payment_company_id'      => $order_query->row['payment_company_id'],
 				'payment_tax_id'          => $order_query->row['payment_tax_id'],
@@ -289,6 +291,7 @@ class ModelCheckoutOrder extends Model {
 			
 			$template->data['logo'] = $this->config->get('config_url') . 'image/' . $this->config->get('config_logo');		
 			$template->data['store_name'] = $order_info['store_name'];
+			$template->data['store_address'] = $order_info['store_address'];
 			$template->data['store_url'] = $order_info['store_url'];
 			$template->data['customer_id'] = $order_info['customer_id'];
 			$template->data['link'] = $order_info['store_url'] . 'index.php?route=account/order/info&order_id=' . $order_id;
