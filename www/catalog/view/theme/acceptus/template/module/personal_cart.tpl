@@ -75,7 +75,7 @@
             <td class="quantity"><input class="quantity-input" type="text" data-product-key="<?php echo $product['key']; ?>" name="quantity[<?php echo $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" size="1" /></td>
             <td class="price"><?php echo $product['price']; ?></td>
             <td class="total"><?php echo $product['total']; ?></td>
-            <td class="remove"><a href="<?php echo $product['remove']; ?>"><img src="catalog/view/theme/acceptus/image/icons/remove.png" alt="<?php echo $button_remove; ?>" title="<?php echo $button_remove; ?>" /></a></td>
+            <td class="remove"><a href="<?php echo $product['remove']; ?>"><i class="close-icon" title="<?php echo $button_remove; ?>" >×</i></a></td>
           </tr>
           <?php } ?>
           <?php foreach ($vouchers as $vouchers) { ?>
@@ -85,7 +85,7 @@
             <td class="quantity"><input type="text" name="" value="1" size="1" disabled="disabled" /></td>
             <td class="price"><?php echo $vouchers['amount']; ?></td>
             <td class="total"><?php echo $vouchers['amount']; ?></td>
-            <td class="remove"><a href="<?php echo $vouchers['remove']; ?>"><img src="catalog/view/theme/acceptus/image/icons/remove.png" alt="<?php echo $button_remove; ?>" title="<?php echo $button_remove; ?>" /></a></td>
+            <td class="remove"><a href="<?php echo $vouchers['remove']; ?>"><i class="close-icon" title="<?php echo $button_remove; ?>" >×</i></a></td>
           </tr>
           <?php } ?>
         </tbody>

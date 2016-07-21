@@ -22,7 +22,7 @@
                 </td>
                 <td class="quantity">x&nbsp;<?php echo $product['quantity']; ?></td>
                 <td class="total"><?php echo $product['total']; ?></td>
-                <td class="remove"><img src="catalog/view/theme/acceptus/image/icons/remove-small.png" alt="<?php echo $button_remove; ?>" title="<?php echo $button_remove; ?>" onclick="removeProduct('<?php echo $product['key']; ?>')" /></td>
+                <td class="remove"><i class="close-icon" title="<?php echo $button_remove; ?>" onclick="removeProduct('<?php echo $product['key']; ?>')" >×</i></td>
               </tr>
               <?php } ?>
               <?php foreach ($vouchers as $voucher) { ?>
@@ -31,7 +31,7 @@
                 <td class="name"><?php echo $voucher['description']; ?></td>
                 <td class="quantity">x&nbsp;1</td>
                 <td class="total"><?php echo $voucher['amount']; ?></td>
-                <td class="remove"><img src="catalog/view/theme/acceptus/image/icons/remove-small.png" alt="<?php echo $button_remove; ?>" title="<?php echo $button_remove; ?>" onclick="removeProduct('<?php echo $voucher['key']; ?>')" /></td>
+                  <td class="remove"><i class="close-icon" title="<?php echo $button_remove; ?>" onclick="removeProduct('<?php echo $product['key']; ?>')" >×</i></td>
               </tr>
               <?php } ?>
             </table>
